@@ -44,6 +44,7 @@ function App() {
           </button>
           <button
             // onClick={() => { setColor('cyan') }}
+            onClick={() => { setImage() }}
             type="button"
             className="bg-cyan-500  rounded-md px-3 py-2 hover:bg-cyan-400"
           >
