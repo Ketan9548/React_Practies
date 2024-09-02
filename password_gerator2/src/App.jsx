@@ -9,12 +9,15 @@ function App() {
   const radompassword = useCallback(() => {
     let pass = "";
     let str = "ABCDEFGHIJKLMOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-  },)
+  }, [password, uniqueCharactor, length])
   return (
     <>
-      <div>
-        <h1 className='text-4xl text-center text-white m-4'>Password Generator</h1>
-      
+      <h1 className='text-4xl text-center text-white m-4'>Password Generator</h1>
+      <div className='flex justify-center'>
+        <input type="text" />
+        <input type="range" />
+        <input type="radio" />
+        <p className='text-white'>Check It</p>
       </div>
     </>
   )
