@@ -39,7 +39,6 @@ function App() {
     radompassword()
   }, [length, numberallowed, charallowed, radompassword])
 
-
   return (
     <>
       <div className='flex flex-col justify-center items-center h-screen bg-gray-800'>
