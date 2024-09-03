@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 
 function App() {
   const [weight, setweight] = useState('');
@@ -29,7 +27,7 @@ function App() {
   function updateweight() {
     if (weight > 0 && height > 0) {
       const heightInMeters = height / 100;
-      const bmiValue = (weight / (heightInMeters * heightInMeters)).toFixed(2);
+      const bmiValue = (weight / (heightInMeters * heightInMeters)).toFixed(2)*100;
       setbmi(bmiValue);
       changecolor();
     }
