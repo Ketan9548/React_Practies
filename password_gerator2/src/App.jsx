@@ -1,38 +1,86 @@
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useState } from 'react'
 
 function App() {
-  let [length, setlength] = useState(8);
+  let [length, setlength] = useState(5);
   let [numberallowed, setnuberallowed] = useState(false);
   let [charallowed, setcharallowed] = useState(false);
   let [password, setpassword] = useState();
+
 
   const radompassword = useCallback(() => {
     let pass = "";
     let str = "ABCDEFGHIJKLMOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 
-    if (setnuberallowed) {
+    if (numberallowed) {
       str += "0123456789";
     }
-    if (setcharallowed) {
+    if (charallowed) {
       str += "!@#$%^&*()?:;[]";
     }
-    for (let i = 1; i <= array.length; i++) {
+    for (let i = 1; i <= length; i++) {
       let char = Math.floor(Math.random() * str.length + 1)
-
-      pass = str.charAt(char)
+      pass = str.charAt(char) + pass
     }
     setpassword(pass)
   }, [length, numberallowed, charallowed, setpassword])
-  console.log("password is:", password)
+
+  useEffect(() => {
+    radompassword()
+  }, [length, numberallowed, charallowed, radompassword])
+
+
   return (
     <>
-      <h1 className='text-4xl text-center text-white m-4'>Password Generator</h1>
-      <div className='flex justify-center bg-gray-600'>
-        <input className='outline-none w-1/5 py-1 px-3' type="text" placeholder='password' readOnly />
-        <input type="range" />
-        <input type="radio" />
-        <p className='text-white'>Check It</p>
+      <div className='flex flex-col justify-center items-center h-screen bg-gray-800'>
+        <h1 className='text-4xl text-white m-4'>Password Generator</h1>
+        <div className='mt-6 overflow-hidden mb-4 shadow p-4 bg-gray-700 rounded-lg'>
+          <input
+            type="text"
+            placeholder='Password'
+            value={password}
+            readOnly
+            className='rounded-md p-2 w-full mb-4 bg-gray-900 text-white'
+          />
+          <label className='border rounded-md p-2 pl-2 pr-1 bg-white mb-auto'>length of Password: {length}</label>
+          <input
+            type="range"
+            min={5}
+            max={100}
+            className='w-full mb-1 cursor-pointer mt-3 '
+            onChange={(e) => { setlength(e.target.value) }}
+          />
+          <div className='flex items-center mb-4'>
+            <input
+              type="checkbox"
+              className='mr-2'
+              defaultChecked={numberallowed}
+              id='numberInput'
+              onChange={() => {
+                setnuberallowed((prev) => !prev)
+              }}
+            />
+            <label className='text-white'>Include Numbers</label>
+          </div>
+          <div className='flex items-center mb-4'>
+            <input
+              type="checkbox"
+              className='mr-2'
+              defaultChecked={charallowed}
+              id='charInput'
+              onChange={() => {
+                setcharallowed((prev) => !prev)
+              }}
+            />
+            <label className='text-white'>Include Special Characters</label>
+          </div>
+        </div>
+        <button
+          onClick={radompassword}
+          className='bg-blue-500 text-white px-4 py-2 rounded-md'
+        >
+          Generate Password
+        </button>
       </div>
     </>
   )
