@@ -30,7 +30,7 @@ function App() {
   const copypasswordToClipboard = useCallback(() => {
     if (passwordref.current) {
       passwordref.current.select();
-      passwordref.current.setSelectionRange(0, 4);
+      // passwordref.current.setSelectionRange(0, 4);
       window.navigator.clipboard.writeText(password);
     }
   }, [password]);
@@ -52,11 +52,11 @@ function App() {
               value={password}
               readOnly
               ref={passwordref}
-              className='rounded-md p-2 w-full mb-4 bg-gray-900 text-white'
+              className='rounded-md p-2 w-full mb-4 bg-gray-900 text-orange-400'
             />
-            <button onClick={copypasswordToClipboard} className='border rounded-md p-2 pl-3 pr-3 m-2 mb-6 hover:bg-white'>Copy</button>
+            <button onClick={copypasswordToClipboard} className='border rounded-md p-2 pl-3 pr-3 m-2 mb-6 text-orange-400 hover:bg-white'>Copy</button>
           </div>
-          <label className='border rounded-md p-2 pl-2 pr-1 bg-white mb-auto'>
+          <label className='border rounded-md p-2 pl-2 pr-1 text-orange-400 bg-white mb-auto'>
             Length of Password: {length}
           </label>
           <input
@@ -79,7 +79,7 @@ function App() {
               setnuberallowed((prev) => !prev);
             }}
           />
-          <label className='text-white'>Include Numbers</label>
+          <label className='text-orange-400'>Include Numbers</label>
         </div>
 
         <div className='flex items-center mb-4'>
@@ -92,7 +92,7 @@ function App() {
               setcharallowed((prev) => !prev);
             }}
           />
-          <label className='text-white'>Include Special Characters</label>
+          <label className='text-orange-400'>Include Special Characters</label>
         </div>
 
         <button
