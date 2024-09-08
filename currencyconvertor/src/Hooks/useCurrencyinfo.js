@@ -9,5 +9,4 @@ function useCurrencyInfo(currency) {
     }, [currency])
     return data;
 }
-
 export default useCurrencyInfo;
