@@ -1,6 +1,6 @@
 import { useId } from "react"
 
-const Input = ({ label, className = "", amount, onAmountChange, onCurrencyChange, currencyOption = [], SelectCurrent = "usd", amountDisable = false }) => {
+const Input = ({ label, className = "", amount, onAmountChange, onCurrencyChange, currencyOption = [], SelectCurrent = "usd", amountDisable = false, readonly }) => {
   const amountInputId = useId()
   return (
     <div className={`bg-white p-4 rounded-lg text-sm flex items-center space-x-4 shadow-sm ${className}`}>
@@ -16,8 +16,9 @@ const Input = ({ label, className = "", amount, onAmountChange, onCurrencyChange
           disabled={amountDisable}
           value={amount}
           onChange={(e) => onAmountChange && onAmountChange(Number(e.target.value))}
+          readOnly = {readonly}
         />
-      </div>  
+      </div>
       <div className="w-1/2 flex flex-col items-end">
         <p className="text-gray-500 mb-1 w-full text-right">Currency Type</p>
         <select

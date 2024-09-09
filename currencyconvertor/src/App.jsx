@@ -3,22 +3,21 @@ import Input from './Components/Input'
 import useCurrencyinfo from './Hooks/useCurrencyinfo.js'
 
 function App() {
-  const [amount, setAmout] = useState('')
+  const [amount, setAmout] = useState(0)
   const [from, setFrom] = useState("inr")
   const [To, setTo] = useState("usd")
   const [convertedAmount, setConvertedAmount] = useState()
 
   const currencyInfo = useCurrencyinfo(from)
   const options = Object.keys(currencyInfo);
-  const changeval = ()=>{
+
+  const changeval = () => {
     setFrom(options[0])
     setTo(options[1])
   }
   const swap = () => {
     setFrom(To);
     setTo(from);
-    setConvertedAmount(amount)
-    setAmout(convertedAmount);
   }
 
   const convert = () => {
@@ -46,8 +45,8 @@ function App() {
                   label="From"
                   amount={amount}
                   currencyOption={options}
-                  onCurrencyChange={(currency) => setAmout(amount)}
-                  selectCurrency={() => changeval()}
+                  onCurrencyChange={(currency) => setFrom(currency)}
+                  SelectCurrent={from}
                   onAmountChange={(amount) => setAmout(amount)}
                 />
               </div>
@@ -66,8 +65,9 @@ function App() {
                   amount={convertedAmount}
                   currencyOption={options}
                   onCurrencyChange={(currency) => setTo(currency)}
-                  selectCurrency={To}
+                  SelectCurrent={To}
                   onAmountChange={(amount) => setAmout(amount)}
+                  readonly={true}
                 />
               </div>
               <button type="submit" className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg">
