@@ -11,7 +11,6 @@ const Main = () => {
 
     // State to manage cart items
     const [cart, setCart] = useState([]);
-            
     // Function to add an item to the cart
     const addToCart = (item) => {
         setCart([...cart, item]);
