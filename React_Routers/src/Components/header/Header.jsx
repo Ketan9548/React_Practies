@@ -20,6 +20,9 @@ const Header = () => {
                             <NavLink to="/contact" className={({ isActive }) => `${isActive ? "text-orange-500" : "text-black"} hover:text-gray-200`}>
                                 Contact
                             </NavLink>
+                            <NavLink to="/linkedin" className={({ isActive }) => `${isActive ? "text-orange-500" : "text-black"} hover:text-gray-200`}>
+                                Linkedin
+                            </NavLink>
                         </ul>
                     </nav>
                 </div>
