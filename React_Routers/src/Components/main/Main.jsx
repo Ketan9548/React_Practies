@@ -11,11 +11,11 @@ const Main = () => {
 
     // State to manage cart items
     const [cart, setCart] = useState([]);
-
+            
     // Function to add an item to the cart
     const addToCart = (item) => {
         setCart([...cart, item]);
-    };
+    };      
 
     // Function to remove an item from the cart
     const removeFromCart = (itemId) => {
