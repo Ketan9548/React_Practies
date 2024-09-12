@@ -2,13 +2,13 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
-import { BrowserRouter, createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
 import Main from './Components/main/Main.jsx'
 import About from './Components/about/About.jsx'
 import Services from './Components/Service/Service.jsx'
 import Contact from './Components/Contect/Contact.jsx'
 import User from './Components/User/User.jsx'
-import Linkedin from './Components/Linkedin/Linkedin.jsx'
+import Linkedin, { gitloaderdata } from './Components/Linkedin/Linkedin.jsx'
 
 // const router = createBrowserRouter([
 //   {
@@ -39,12 +39,18 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='' element={<App />}>
       <Route path='/' element={<Main />} />
-      <Route path='about' element={<About />} />
-      <Route path='services' element={<Services/>} />
-      <Route path='contact' element={<Contact/>} />
-      <Route path='user/:id' element={<User/>} />
-      <Route path='linkedin' element={<Linkedin/>} />
-    </Route>
+      <Route path='about' element={<About />}>
+        <Route path='name' element={
+          <div>
+            <h1>This is name</h1>
+          </div>
+        } />
+      </Route>
+      <Route path='services' element={<Services />} />
+      <Route path='contact' element={<Contact />} />
+      <Route path='user/:id' element={<User />} />
+      <Route loader={gitloaderdata} path='linkedin' element={<Linkedin />} />
+    </Route >
   )
 )
 
