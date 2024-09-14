@@ -8,16 +8,20 @@ const Login = () => {
     const { setUser } = useContext(Contextapi)
 
     const handelsubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         setUser({ username, password });
     }
     return (
-        <div>
-            <h1>Login</h1>
-            <input type="text" placeholder='username' value={username} onChange={(e) => setUsername(e.target.value)} />
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder='password' />
-            <button onChange={handelsubmit()}>Submit</button>
-        </div>
+        <>
+            <div>
+                <h1>Login</h1>
+                <input type="text" placeholder='username' value={username} onChange={(e) => setUsername(e.target.value)} />
+                <br />
+                <br />
+                <input type="text" value={password} onChange={(e) => setPassword(e.target.value)} placeholder='password' />
+            </div>
+            <button onClick={handelsubmit}>Submit</button>
+        </>
     )
 }
 

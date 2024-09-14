@@ -1,15 +1,14 @@
-import React, { useState } from 'react'
-import Contextapi from './Contextapi'
+import React, { useState } from 'react';
+import Contextapi from './Contextapi';
 
-const UserContextProvider = ({ childeren }) => {
+const UserContextProvider = ({ children }) => {
     const [user, setUser] = useState(null);
-    return (
-        <div>
-            <Contextapi.Provider value={{user,setUser}}>
-                {childeren}
-            </Contextapi.Provider>
-        </div>
-    )
-}
 
-export default UserContextProvider 
+    return (
+        <Contextapi.Provider value={{ user, setUser }}>
+            {children}
+        </Contextapi.Provider>
+    );
+};
+
+export default UserContextProvider;

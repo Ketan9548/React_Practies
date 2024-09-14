@@ -2,10 +2,16 @@ import React, { useContext } from 'react'
 import Contextapi from '../Context/Contextapi'
 
 const Profile = () => {
-    const {user} = useContext(Contextapi)
+    const { user } = useContext(Contextapi);
 
-    if(!user) return <div>please login</div>
-    return <div> Welcome {user.username}</div>
+    return (
+        user && user.username ? (
+            <div>Welcome {user.username}</div>
+        ) :
+            (
+                <div>Please login</div>
+            )
+    )
 }
 
 export default Profile

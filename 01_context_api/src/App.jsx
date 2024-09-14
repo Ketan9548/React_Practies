@@ -5,7 +5,7 @@ import UserContextProvider from './Context/UserContextProvider'
 
 function App() {
   return (
-    <> 
+    <>
       <UserContextProvider>
         <h1>React name</h1>
         <Login />
