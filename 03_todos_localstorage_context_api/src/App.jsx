@@ -21,14 +21,14 @@ function App() {
   }
 
   useEffect(() => {
-    const todos = JSON.parse(localStorage.getItem("todos"));
-    if (todos && todos > 0) {
-      setTodos(todos);
+    const todo = JSON.parse(localStorage.getItem("todos"));
+    if (todo && todo > 0) {
+      setTodos(todo);
     }
   }, [])
 
-  useEffect(()=>{
-    localStorage.setItem("todos",JSON.stringify(todos));
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
   })
 
   return (
