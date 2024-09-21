@@ -56,7 +56,6 @@ function App() {
           </div>
         </div>
       </div>
-      <p>kapil</p>
     </Todoprovider>
   );
 }
