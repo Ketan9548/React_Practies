@@ -13,7 +13,7 @@ const ButtonThem = () => {
   };
   return (
     <>
-      <label className="inline-flex items-center cursor-pointer">
+      <label className="flex cursor-pointer">
         <input
           type="checkbox"
           value=""
