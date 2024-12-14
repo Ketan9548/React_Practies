@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef } from 'react';
 import { useState } from 'react'
 
 function App() {
-  let [length, setlength] = useState(5);
+  let [length, setlength] = useState(2);
   let [numberallowed, setnuberallowed] = useState(false);
   let [charallowed, setcharallowed] = useState(false);
   let [password, setpassword] = useState();
@@ -30,7 +30,7 @@ function App() {
   const copypasswordToClipboard = useCallback(() => {
     if (passwordref.current) {
       passwordref.current.select();
-      // passwordref.current.setSelectionRange(0, 4);
+      passwordref.current.setSelectionRange(0, 999);
       window.navigator.clipboard.writeText(password);
     }
   }, [password]);
@@ -60,7 +60,7 @@ function App() {
           </label>
           <input
             type="range"
-            min="5"
+            min="2"
             max="100"
             value={length}
             className='w-full mb-1 cursor-pointer mt-3'
